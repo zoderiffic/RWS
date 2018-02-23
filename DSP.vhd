@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.all;
 
 entity DSP is
 	Port (
@@ -42,7 +43,7 @@ begin
 				sig_3 <= X"0000";				
 			else 
 				if rising_edge(SYS_CLK) then
-					sig_0(15 downto 4)	<= not(ADC_DATA_0);
+					sig_0(15 downto 4)	<= (not(ADC_DATA_0));
 					sig_0(3 downto 0)	<= x"0";
 
 					sig_1(15 downto 4)	<= not(ADC_DATA_1);

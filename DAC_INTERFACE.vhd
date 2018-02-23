@@ -23,7 +23,7 @@ entity DAC_INTERFACE is
 		RESET           : in  STD_LOGIC;
 
 		--System Clock from ADC interface
-        ADC_CLOCK	    : in STD_LOGIC; --sysclock
+        SYS_CLK 	    : in STD_LOGIC; --sysclock
         FPGA_CLKP       : IN STD_LOGIC;
         FPGA_CLKN       : IN STD_LOGIC
 		);
@@ -34,11 +34,34 @@ architecture Behavioral of DAC_INTERFACE is
 	signal dac_clk 		: STD_LOGIC;
 	signal clk1_ghz     : STD_LOGIC;
 	signal dac_data_out : STD_LOGIC_VECTOR(15 downto 0);
+	
+	component pll_250HZz_to_500MHz
+    port
+     (-- Clock in ports
+      -- Clock out ports
+      DAC_CLK          : out    std_logic;
+      -- Status and control signals
+      RESET             : in     std_logic;
+      LOCKED            : out    std_logic;
+      SYS_CLK           : in     std_logic
+     );
+    end component;
 
 
 	begin
 
-				--DAC Clock
+
+                pll_250MHz_to_500MHz : pll_250HZz_to_500MHz -- 500 MHz to drive oserdes with the DAC CLK
+                       port map ( 
+                      -- Clock out ports  
+                       DAC_CLK => dac_clk,
+                      -- Status and control signals                
+                       RESET => reset,
+                       LOCKED => open,
+                       -- Clock in ports
+                       SYS_CLK => SYS_CLK
+                     );
+				--DAC Clo
 	        	OBUFDS_inst_DACCLK : OBUFDS
 		            generic map (
                     -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
@@ -48,22 +71,22 @@ architecture Behavioral of DAC_INTERFACE is
 		                O               =>      DAC_CLOCK_P,         		-- Diff_p buffer input (connect directly to top-level port)
 		                OB              =>      DAC_CLOCK_N          		-- Diff_n buffer input (connect directly to top-level port)
 	            	); 
-                  IBUFDS_inst_FPGA_CLK : IBUFDS -- 1 GHZ Clk
-                    generic map (
-                       DIFF_TERM => FALSE, -- Differential Termination 
-                       IBUF_LOW_PWR => TRUE, -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
-                       IOSTANDARD => "DEFAULT")
-                    port map (
-                       O => clk1_ghz,  -- Buffer output
-                       I => FPGA_CLKP,  -- Diff_p buffer input (connect directly to top-level port)
-                       IB => FPGA_CLKN -- Diff_n buffer input (connect directly to top-level port)
-                    );
+                  	IBUFDS_inst_FPGA_CLK : IBUFDS -- 1 GHZ Clk
+                  	  generic map (
+                  	     DIFF_TERM => FALSE, -- Differential Termination 
+                  	     IBUF_LOW_PWR => TRUE, -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
+                  	     IOSTANDARD => "DEFAULT")
+                  	  port map (
+                  	     O => clk1_ghz,  -- Buffer output
+                  	     I => FPGA_CLKP,  -- Diff_p buffer input (connect directly to top-level port)
+                  	     IB => FPGA_CLKN -- Diff_n buffer input (connect directly to top-level port)
+                  	  );
 	            	
 
 	            OSERDESloop : for i in 0 to 15 generate
 					OSERDESE2_inst : OSERDESE2
 						generic map (
-							DATA_RATE_OQ => "SDR", -- DDR, SDR
+							DATA_RATE_OQ => "DDR", -- DDR, SDR
 							DATA_RATE_TQ => "DDR", -- DDR, BUF, SDR
 							DATA_WIDTH => 4, -- Parallel data width (2-8,10,14)
 							INIT_OQ => '0', -- Initial value of OQ output (1'b0,1'b1)
@@ -85,7 +108,7 @@ architecture Behavioral of DAC_INTERFACE is
 							TFB => open, -- 1-bit output: 3-state control
 							TQ => open, -- 1-bit output: 3-state control
 							CLK => dac_clk, -- 1-bit input: High speed clock
-							CLKDIV => ADC_CLOCK, -- 1-bit input: Divided clock
+							CLKDIV => SYS_CLK, -- 1-bit input: Divided clock
 							-- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
 							D1 => DAC_DATA_0(i),
 							D2 => DAC_DATA_1(i),
@@ -110,7 +133,7 @@ architecture Behavioral of DAC_INTERFACE is
 						);
 						end generate OSERDESloop; 
 
-						    -- CONVERT DATA TO DAC
+			-- CONVERT DATA DAC TO Differential DATA
 		        OBUFDSloop : for i in 0 to 15 generate
 		        	OBUFDS_inst : OBUFDS
 		        	generic map (

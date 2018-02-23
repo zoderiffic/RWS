@@ -38,9 +38,9 @@ entity top_wrapper is
         DAC_DATA_OUT_P : out STD_LOGIC_VECTOR (15 downto 0);    -- EVEN 0, 2, 4, etc
         DAC_DATA_OUT_N : out STD_LOGIC_VECTOR (15 downto 0);    -- ODD  1, 3, 5..
 
-        --DAC CLK coming in as LVDS
-        DAC_CLOCK_P : in STD_LOGIC;
-        DAC_CLOCK_N : in STD_LOGIC;
+        --DAC CLK to control the timing of samples sent to DAC in as LVDS
+        DAC_CLOCK_P : out STD_LOGIC;
+        DAC_CLOCK_N : out STD_LOGIC;
     
         -- CONTROLS TO THE DAC
         FPGA_CLKP : IN STD_LOGIC;
@@ -54,7 +54,7 @@ entity top_wrapper is
         ADC_DATA_IN_B_P : in STD_LOGIC_VECTOR (11 downto 0); -- EVEN 0, 2, 4...
         ADC_DATA_IN_B_N : in STD_LOGIC_VECTOR (11 downto 0); -- ODD  1, 3, 5...
         ADC_DATA_IN_A_P : in STD_LOGIC_VECTOR (11 downto 0); -- EVEN 0, 2, 4...
-        ADC_DATA_IN_A_N : in STD_LOGIC_VECTOR (11 downto 0);-- ODD 1, 3, 5...
+        ADC_DATA_IN_A_N : in STD_LOGIC_VECTOR (11 downto 0); -- ODD 1, 3, 5...
 
         	-- ADC CLK coming in as LVDS
     	ADC_CLOCK_A_P : in STD_LOGIC; --250 MHz clock output from ADC 
@@ -101,7 +101,7 @@ architecture Behavioral of top_wrapper is
 			ADC_DATA_3	: out STD_LOGIC_VECTOR(11 downto 0);
 
 			--clock output from interface
-			SYS_CLOCK 	: out STD_LOGIC
+			SYS_CLK 	: out STD_LOGIC
 			);
 		end component;
 
@@ -136,9 +136,9 @@ architecture Behavioral of top_wrapper is
 			DAC_DATA_2	: in STD_LOGIC_VECTOR(15 downto 0);
 			DAC_DATA_3	: in STD_LOGIC_VECTOR(15 downto 0);
 
-			--input clk from DAC
-			DAC_CLOCK_P	: in STD_LOGIC;
-			DAC_CLOCK_N	: in STD_LOGIC;
+			--500MHz Clk to drive OSERDES DDR
+			DAC_CLOCK_P	: out STD_LOGIC;
+			DAC_CLOCK_N	: out STD_LOGIC;
 
 			--DAC interface output
 			DAC_DATA_OUT_P	: out STD_LOGIC_VECTOR(15 downto 0);
@@ -147,7 +147,7 @@ architecture Behavioral of top_wrapper is
 			RESET           : in std_logic;
             
 			--Clocks
-			ADC_CLOCK	: in STD_LOGIC; --sysclock
+			SYS_CLK  	: in STD_LOGIC; --sysclock
 			FPGA_CLKP   : IN STD_LOGIC;
 			FPGA_CLKN   : IN STD_LOGIC
 
@@ -199,7 +199,7 @@ begin
 			ADC_DATA_3	=> adc_data_3,
 
 			--clock output from interface
-			SYS_CLOCK 	=> sys_clk
+			SYS_CLK 	=> sys_clk
 			);
 
 	--DAC Inteface instantiaion
@@ -221,9 +221,9 @@ begin
 			RESET           => RESET, 
 
 			--System Clock from ADC interface
-			ADC_CLOCK	     => sys_clk,
-            FPGA_CLKP        => FPGA_CLKP,
-            FPGA_CLKN        => FPGA_CLKN
+			SYS_CLK	     	=> sys_clk,
+            		FPGA_CLKP       => FPGA_CLKP,
+            		FPGA_CLKN       => FPGA_CLKN
 
 			);
 

@@ -23,7 +23,7 @@ entity ADC_INTERFACE is
 		ADC_DATA_3	: out STD_LOGIC_VECTOR(11 downto 0);
 
 		--clock output from interface
-		SYS_CLOCK 	: out STD_LOGIC
+		SYS_CLK 	: out STD_LOGIC
 		);
 	end ADC_INTERFACE;
 
@@ -35,7 +35,7 @@ architecture Behavioral of ADC_INTERFACE is
 	signal adc_clk_w        : std_logic;
 
 begin
-             SYS_CLOCK      <= adc_clk_w;
+             SYS_CLK      <= adc_clk_w;
 
 
 			-- CONVERT ADC LVDS DATA 
