@@ -1,6 +1,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.all;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
 
 entity DSP is
 	Port (
@@ -43,16 +45,17 @@ begin
 				sig_3 <= X"0000";				
 			else 
 				if rising_edge(SYS_CLK) then
-					sig_0(15 downto 4)	<= (not(ADC_DATA_0));
+				    --PADDING BOTTOM 4 BITS of ADC WITH ZEROS and taking two's complement. DAC TAKES IN TWOS COMPLEMENT
+					sig_0(15 downto 4)	<= (not(ADC_DATA_0)) + 1;
 					sig_0(3 downto 0)	<= x"0";
 
-					sig_1(15 downto 4)	<= not(ADC_DATA_1);
+					sig_1(15 downto 4)	<= (not(ADC_DATA_1)) + 1;
 					sig_1(3 downto 0)	<= x"0";					
 
-					sig_2(15 downto 4)	<= NOT(ADC_DATA_2);
+					sig_2(15 downto 4)	<= (NOT(ADC_DATA_2)) + 1 ;
 					sig_2(3 downto 0)	<= x"0";					
 
-					sig_3(15 downto 4)	<= not(ADC_DATA_3);
+					sig_3(15 downto 4)	<= (not(ADC_DATA_3)) + 1;
 					sig_3(3 downto 0)	<= x"0";	
 				end if;
 			end if;
