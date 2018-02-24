@@ -2,8 +2,6 @@
 #FMC HPC PINOUTS #################### ADC
 #CLK
 
-<<<<<<< HEAD
-=======
 #LA
 set_property 	PACKAGE_PIN 	AG20 		[get_ports {ADC_DATA_IN_A_N[5]}]
 set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_A_N[5]}]
@@ -106,7 +104,6 @@ set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_B_N[11]}]
 set_property 	PACKAGE_PIN 	N26 		[get_ports {ADC_DATA_IN_B_P[11]}]
 set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_B_P[11]}]
 ##GENERAL INFO
->>>>>>> e6d8b187a3e3c659b4d6a20555ec21abf678d70b
 
 ##GENERAL INFO
 #
@@ -302,7 +299,7 @@ set_property    IOSTANDARD 	    LVDS_25     [get_ports {DAC_DATA_OUT_N[0]}]
 
 set_property    PACKAGE_PIN     AG17 	      [get_ports FPGA_CLKP]
 set_property    IOSTANDARD 	    LVDS_25     [get_ports FPGA_CLKP]
-set_property    PACKAGE_PIN     AG18        [get_ports FPGA_CLKN]
+set_property    PACKAGE_PIN     AG16        [get_ports FPGA_CLKN]
 set_property    IOSTANDARD 	    LVDS_25     [get_ports FPGA_CLKN]
 set_property    PACKAGE_PIN     AB29 	      [get_ports SYNCP]
 set_property    IOSTANDARD 	    LVDS_25     [get_ports SYNCP]
@@ -315,17 +312,14 @@ set_property    IOSTANDARD 	    LVDS_25     [get_ports SYNCN]
 ##OTHER PINS
 
 
-<<<<<<< HEAD
 set_property    PACKAGE_PIN     AE27 	      [get_ports DCLKP]
 set_property    IOSTANDARD 	    LVDS_25     [get_ports DCLKP]
 set_property    PACKAGE_PIN     AF27 	      [get_ports DCLKN]
 set_property    IOSTANDARD 	    LVDS_25     [get_ports DCLKN]
-=======
 set_property PACKAGE_PIN 	AE27 	[get_ports DAC_CLOCK_P]
 set_property IOSTANDARD 	LVDS_25 [get_ports DAC_CLOCK_P]
 set_property PACKAGE_PIN 	AF27 	[get_ports DAC_CLOCK_N]
 set_property IOSTANDARD 	LVDS_25 [get_ports DAC_CLOCK_N]
->>>>>>> e6d8b187a3e3c659b4d6a20555ec21abf678d70b
 
 
 
