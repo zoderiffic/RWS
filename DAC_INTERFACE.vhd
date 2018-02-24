@@ -110,10 +110,10 @@ architecture Behavioral of DAC_INTERFACE is
 							CLK => dac_clk, -- 1-bit input: High speed clock
 							CLKDIV => SYS_CLK, -- 1-bit input: Divided clock
 							-- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
-							D1 => DAC_DATA_0(i),
-							D2 => DAC_DATA_1(i),
-							D3 => DAC_DATA_2(i),
-							D4 => DAC_DATA_3(i),
+							D1 => DAC_DATA_1(i),
+							D2 => DAC_DATA_3(i),
+							D3 => DAC_DATA_0(i),
+							D4 => DAC_DATA_2(i),
 							D5 => '1',
 							D6 => '1',
 							D7 => '1',

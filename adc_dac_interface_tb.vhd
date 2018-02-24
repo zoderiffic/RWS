@@ -50,8 +50,8 @@ architecture Behavioral of adc_dac_interface_tb is
         -- CONTROLS TO THE DAC
         
               --DAC CLK coming in as LVDS
-        DAC_CLOCK_P :       in      STD_LOGIC;
-        DAC_CLOCK_N :       in      STD_LOGIC;
+        DAC_CLOCK_P :       out      STD_LOGIC;
+        DAC_CLOCK_N :       out     STD_LOGIC;
            	-- ADC CLK coming in as LVDS
         ADC_CLOCK_A_P:      in      STD_LOGIC; --250 MHz clock output from ADC 
         ADC_CLOCK_A_N  :    in      STD_LOGIC;
@@ -59,8 +59,8 @@ architecture Behavioral of adc_dac_interface_tb is
  
   
 
-        FPGA_CLKP :         out     STD_LOGIC;
-        FPGA_CLKN :         out     STD_LOGIC;
+        FPGA_CLKP :         in     STD_LOGIC;
+        FPGA_CLKN :         in     STD_LOGIC;
         SYNCP :             out     STD_LOGIC;
         SYNCN :             out     STD_LOGIC;
         DCLKP :             out     STD_LOGIC;
@@ -103,8 +103,8 @@ reset <= '1', '0' after 10 ns;
         -- DATA GOING GOING OUT TO THE DAC AS LVDS
         DAC_DATA_OUT_P => dac_data_out_p,
         DAC_DATA_OUT_N => dac_data_out_n,  
-        FPGA_CLKP  => open,
-        FPGA_CLKN => open, 
+        FPGA_CLKP  => '0',
+        FPGA_CLKN => '0', 
         SYNCP => open, 
         SYNCN => open,
         DCLKP => open,
@@ -127,8 +127,8 @@ reset <= '1', '0' after 10 ns;
         counter_data: process(clk_500MHz_p,reset)
         begin
               if Reset='1' then
-                 adc_data_a_p <= (others => '0');
-                 adc_data_b_p <= x"001";
+                 adc_data_a_p <= x"001";
+                 adc_data_b_p <= (others => '0');
               elsif(rising_edge(clk_500MHz_p)) then
                  adc_data_a_p <= adc_data_a_q;
                  adc_data_b_p <= adc_data_b_q;

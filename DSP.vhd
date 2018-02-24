@@ -46,16 +46,16 @@ begin
 			else 
 				if rising_edge(SYS_CLK) then
 				    --PADDING BOTTOM 4 BITS of ADC WITH ZEROS and taking two's complement. DAC TAKES IN TWOS COMPLEMENT
-					sig_0(15 downto 4)	<= (not(ADC_DATA_0)) + 1;
+					sig_0(15 downto 4)	<= ADC_DATA_0; --+ 1;
 					sig_0(3 downto 0)	<= x"0";
 
-					sig_1(15 downto 4)	<= (not(ADC_DATA_1)) + 1;
+					sig_1(15 downto 4)	<= ADC_DATA_1 ;--+ 1;
 					sig_1(3 downto 0)	<= x"0";					
 
-					sig_2(15 downto 4)	<= (NOT(ADC_DATA_2)) + 1 ;
+					sig_2(15 downto 4)	<=ADC_DATA_2 ;--+ 1 ;
 					sig_2(3 downto 0)	<= x"0";					
 
-					sig_3(15 downto 4)	<= (not(ADC_DATA_3)) + 1;
+					sig_3(15 downto 4)	<= ADC_DATA_3 ;--+ 1;
 					sig_3(3 downto 0)	<= x"0";	
 				end if;
 			end if;
