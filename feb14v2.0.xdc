@@ -48,9 +48,9 @@ set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_A_N[8]}]
 set_property 	PACKAGE_PIN 	AA24 		[get_ports {ADC_DATA_IN_A_P[8]}]
 set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_A_P[8]}]
 set_property 	PACKAGE_PIN 	W24 		[get_ports ADC_CLOCK_A_N]
-set_property 	IOSTANDARD 	LVCMOS25 	[get_ports ADC_CLOCK_A_N]
+set_property 	IOSTANDARD 	LVDS_25 	[get_ports ADC_CLOCK_A_N]
 set_property 	PACKAGE_PIN 	V23 		[get_ports ADC_CLOCK_A_P]
-set_property 	IOSTANDARD 	LVCMOS25 	[get_ports ADC_CLOCK_A_P]
+set_property 	IOSTANDARD 	LVDS_25 	[get_ports ADC_CLOCK_A_P]
 set_property 	PACKAGE_PIN 	T25 		[get_ports {ADC_DATA_IN_A_N[6]}]
 set_property 	IOSTANDARD 	LVDS_25 	[get_ports {ADC_DATA_IN_A_N[6]}]
 set_property 	PACKAGE_PIN 	T24 		[get_ports {ADC_DATA_IN_A_P[6]}]
@@ -204,10 +204,10 @@ set_property IOSTANDARD 	LVDS_25 [get_ports SYNCN]
 ##OTHER PINS
 
 
-set_property PACKAGE_PIN 	AE27 	[get_ports DCLKP]
-set_property IOSTANDARD 	LVDS_25 [get_ports DCLKP]
-set_property PACKAGE_PIN 	AF27 	[get_ports DCLKN]
-set_property IOSTANDARD 	LVDS_25 [get_ports DCLKN]
+set_property PACKAGE_PIN 	AE27 	[get_ports DAC_CLOCK_P]
+set_property IOSTANDARD 	LVDS_25 [get_ports DAC_CLOCK_P]
+set_property PACKAGE_PIN 	AF27 	[get_ports DAC_CLOCK_N]
+set_property IOSTANDARD 	LVDS_25 [get_ports DAC_CLOCK_N]
 
 
 
