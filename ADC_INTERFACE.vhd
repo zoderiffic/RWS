@@ -68,7 +68,7 @@ begin
 	        	end generate IBUFDS_B; 
 
 	        	--ADC Clock
-	        	IBUFDS_inst_ADCCLK : IBUFDS
+	        	IBUFDS_inst_ADCCLK : IBUFGDS
 		            generic map (
 		                DIFF_TERM       =>      FALSE,                      -- Differential Termination
 		                IBUF_LOW_PWR    =>      TRUE,                       -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
