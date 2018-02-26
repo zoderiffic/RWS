@@ -33,8 +33,21 @@ architecture Behavioral of ADC_INTERFACE is
 	signal adc_data_in_a 	: std_logic_vector(11 downto 0);
 	signal adc_data_in_b 	: std_logic_vector(11 downto 0);
 	signal adc_clk_w        : std_logic;
+	signal adc_data_0_w     : std_logic_vector(11 downto 0);
+	signal adc_data_1_w     : std_logic_vector(11 downto 0);
+	signal adc_data_2_w     : std_logic_vector(11 downto 0);
+	signal adc_data_3_w     : std_logic_vector(11 downto 0);
 
 begin
+
+
+
+            --INVERT DATA because our input data ports are crossed;
+            ADC_DATA_0 <= not(adc_data_0_w);
+            ADC_DATA_1 <= not(adc_data_1_w);
+            ADC_DATA_2 <= not(adc_data_2_w);
+            ADC_DATA_3 <= not(adc_data_3_w);
+
 
 
 			-- CONVERT ADC LVDS DATA 
@@ -87,8 +100,8 @@ begin
 						INIT_Q2 => '0', -- Initial value of Q2: '0' or '1'
 						SRTYPE => "SYNC") -- Set/Reset type: "SYNC" or "ASYNC"
 					port map (
-						Q1 => ADC_DATA_0(i), -- 1-bit output for positive edge of clock
-						Q2 => ADC_DATA_1(i), -- 1-bit output for negative edge of clock
+						Q1 => adc_data_0_w(i), -- 1-bit output for positive edge of clock
+						Q2 => adc_data_1_w(i), -- 1-bit output for negative edge of clock
 						C => SYS_CLK, -- 1-bit clock input 
 						CE => '1', -- 1-bit clock enable input 
 						D => adc_data_in_a(i), -- 1-bit DDR data input
@@ -106,8 +119,8 @@ begin
 						INIT_Q2 => '0', -- Initial value of Q2: '0' or '1'
 						SRTYPE => "SYNC") -- Set/Reset type: "SYNC" or "ASYNC"
 					port map (
-						Q1 => ADC_DATA_2(i), -- 1-bit output for positive edge of clock
-						Q2 => ADC_DATA_3(i), -- 1-bit output for negative edge of clock
+						Q1 => ADC_DATA_2_w(i), -- 1-bit output for positive edge of clock
+						Q2 => ADC_DATA_3_w(i), -- 1-bit output for negative edge of clock
 						C => SYS_CLK, -- 1-bit clock input <--- we don't know this
 						CE => '1', -- 1-bit clock enable input <--- don't know this either
 						D => adc_data_in_b(i), -- 1-bit DDR data input
