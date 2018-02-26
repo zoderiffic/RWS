@@ -250,4 +250,6 @@ set_property      IOSTANDARD        LVDS      [get_ports CLK_200MHz_P]
 create_clock -period 5.000 -name CLK_200MHz -waveform {0.000 2.500} [get_ports CLK_200MHz_P]
 
 
+set_property      PACKAGE_PIN       K25       [get_ports RESET]
+set_property      IOSTANDARD        LVCMOS15  [get_ports RESET]
 

@@ -19,6 +19,8 @@ entity DAC_INTERFACE is
 		--DAC interface output
 		DAC_DATA_OUT_P	: out STD_LOGIC_VECTOR(15 downto 0);
 		DAC_DATA_OUT_N	: out STD_LOGIC_VECTOR(15 downto 0);
+        SYNCP : out STD_LOGIC;
+        SYNCN : out STD_LOGIC;
 		--
 		RESET           : in  STD_LOGIC;
 
@@ -34,6 +36,7 @@ architecture Behavioral of DAC_INTERFACE is
 	signal dac_clk 		: STD_LOGIC;
 	signal clk1_ghz     : STD_LOGIC;
 	signal dac_data_out : STD_LOGIC_VECTOR(15 downto 0);
+	signal sync         : STD_LOGIC;
 	
 	component pll_250HZz_to_500MHz
     port
@@ -51,6 +54,17 @@ architecture Behavioral of DAC_INTERFACE is
 	begin
 
 
+
+	process(RESET, SYS_CLK)
+		begin
+			if RESET = '1' then
+		      sync <= '0';
+			else 
+				if rising_edge(SYS_CLK) then
+                sync <= '1';
+				end if;
+			end if;
+		end process;
                 pll_250MHz_to_500MHz : pll_250HZz_to_500MHz -- 500 MHz to drive oserdes with the DAC CLK
                        port map ( 
                       -- Clock out ports  
@@ -145,6 +159,16 @@ architecture Behavioral of DAC_INTERFACE is
 		        		I               =>      dac_data_out(i)            -- Buffer input		
 		        	);	
 		        end generate OBUFDSloop; 
+		        
+                ObUFDS_SYNC : OBUFDS
+                generic map (
+                    IOSTANDARD      =>      "DEFAULT",                  -- Specify the output I/O standard
+                    SLEW            =>      "SLOW")                     -- Specify the output slew rate
+                port map (
+                    O               =>      SYNCP,          -- Diff_p output (connect directly to top-level port)
+                    OB              =>      SYNCN,         -- Diff_n output (connect directly to top-level port)
+                    I               =>      sync           -- Buffer input    
+                    );
 
 		end Behavioral;
 

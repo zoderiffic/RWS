@@ -47,8 +47,8 @@ entity top_wrapper is
         CLK_FROM_DAC_N : IN STD_LOGIC;
         SYNCP : out STD_LOGIC;
         SYNCN : out STD_LOGIC;
-        DCLKP : out STD_LOGIC;
-        DCLKN : out STD_LOGIC;
+--        DCLKP : out STD_LOGIC;
+--        DCLKN : out STD_LOGIC;
         -- CLOCKs
         CLK_200MHz_N    : in STD_LOGIC;
         CLK_200MHz_P    : in STD_LOGIC;
@@ -147,6 +147,9 @@ architecture Behavioral of top_wrapper is
 			--DAC interface output
 			DAC_DATA_OUT_P	: out STD_LOGIC_VECTOR(15 downto 0);
 			DAC_DATA_OUT_N	: out STD_LOGIC_VECTOR(15 downto 0);
+            SYNCP : out STD_LOGIC;
+            SYNCN : out STD_LOGIC;
+
 			--
 			RESET           : in std_logic;
             
@@ -235,6 +238,8 @@ begin
 			DAC_DATA_OUT_P	=> DAC_DATA_OUT_P,
 			DAC_DATA_OUT_N	=> DAC_DATA_OUT_N,
 			RESET           => RESET, 
+			SYNCP           => SYNCP,
+            SYNCN           => SYNCN,
 
 			--System Clock from ADC interface
 			SYS_CLK	     	=> sys_clk,
