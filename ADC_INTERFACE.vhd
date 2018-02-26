@@ -89,7 +89,7 @@ begin
 					port map (
 						Q1 => ADC_DATA_0(i), -- 1-bit output for positive edge of clock
 						Q2 => ADC_DATA_1(i), -- 1-bit output for negative edge of clock
-						C => adc_clk_w, -- 1-bit clock input 
+						C => SYS_CLK, -- 1-bit clock input 
 						CE => '1', -- 1-bit clock enable input 
 						D => adc_data_in_a(i), -- 1-bit DDR data input
 						R => '0', -- 1-bit reset 
@@ -108,7 +108,7 @@ begin
 					port map (
 						Q1 => ADC_DATA_2(i), -- 1-bit output for positive edge of clock
 						Q2 => ADC_DATA_3(i), -- 1-bit output for negative edge of clock
-						C => adc_clk_w, -- 1-bit clock input <--- we don't know this
+						C => SYS_CLK, -- 1-bit clock input <--- we don't know this
 						CE => '1', -- 1-bit clock enable input <--- don't know this either
 						D => adc_data_in_b(i), -- 1-bit DDR data input
 						R => '0', -- 1-bit reset <--- not defined yet
