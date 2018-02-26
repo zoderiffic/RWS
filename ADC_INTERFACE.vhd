@@ -23,7 +23,7 @@ entity ADC_INTERFACE is
 		ADC_DATA_3	: out STD_LOGIC_VECTOR(11 downto 0);
 
 		--clock output from interface
-		SYS_CLK 	: out STD_LOGIC
+		SYS_CLK 	: IN STD_LOGIC
 		);
 	end ADC_INTERFACE;
 
@@ -35,7 +35,6 @@ architecture Behavioral of ADC_INTERFACE is
 	signal adc_clk_w        : std_logic;
 
 begin
-             SYS_CLK      <= adc_clk_w;
 
 
 			-- CONVERT ADC LVDS DATA 
@@ -68,7 +67,7 @@ begin
 	        	end generate IBUFDS_B; 
 
 	        	--ADC Clock
-	        	IBUFDS_inst_ADCCLK : IBUFGDS
+	        	IBUFDS_inst_ADCCLK : IBUFDS
 		            generic map (
 		                DIFF_TERM       =>      FALSE,                      -- Differential Termination
 		                IBUF_LOW_PWR    =>      TRUE,                       -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
@@ -116,6 +115,8 @@ begin
 						S => '0' -- 1-bit set <--- not defined yet
 					);
 				end generate IDDRLoopB; 
+				
+
 
 	end Behavioral;
 

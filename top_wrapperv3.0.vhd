@@ -105,7 +105,7 @@ architecture Behavioral of top_wrapper is
 			ADC_DATA_3	: out STD_LOGIC_VECTOR(11 downto 0);
 
 			--clock output from interface
-			SYS_CLK 	: out STD_LOGIC
+			SYS_CLK 	: in STD_LOGIC
 			);
 		end component;
 
@@ -157,6 +157,18 @@ architecture Behavioral of top_wrapper is
 
 			);
 		end component;
+		
+		component sys_clk_250Mhz
+        port
+         (-- Clock in ports
+          -- Clock out ports
+          sys_clk          : out    std_logic;
+          -- Status and control signals
+          reset             : in     std_logic;
+          locked            : out    std_logic;
+          CLK_200MHz           : in     std_logic
+         );
+        end component;
 
 
 
@@ -232,15 +244,24 @@ begin
 			);
 
 
-     SYS_CLK_INST : IBUFGDS
-   generic map (
-      DQS_BIAS => "FALSE"  -- (FALSE, TRUE)
-   )
+     CLK_200Mhz_Inst : IBUFGDS
+
    port map (
       O => clk_200MHz,   -- 1-bit output: Buffer output
-      I => CLK200MHz_P,   -- 1-bit input: Diff_p buffer input (connect directly to top-level port)
-      IB => CLCK_200MHz_N  -- 1-bit input: Diff_n buffer input (connect directly to top-level port)
+      I => CLK_200MHz_P,   -- 1-bit input: Diff_p buffer input (connect directly to top-level port)
+      IB => CLK_200MHz_N  -- 1-bit input: Diff_n buffer input (connect directly to top-level port)
    );
+   
+   sys_clk_inst : sys_clk_250Mhz
+      port map ( 
+     -- Clock out ports  
+      sys_clk => sys_clk,
+     -- Status and control signals                
+      reset => reset,
+      locked => open ,
+      -- Clock in ports
+      CLK_200MHz => CLK_200MHz
+    );
 
 
 end Behavioral;

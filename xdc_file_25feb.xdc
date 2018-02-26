@@ -61,12 +61,12 @@ set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_A_P[1]}]
 set_property 	    PACKAGE_PIN 	    U30 		  [get_ports {ADC_DATA_IN_A_N[1]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_A_N[1]}]
 
-set_property 	    PACKAGE_PIN 	    H25 		  [get_ports {ADC_DATA_IN_A_P[0]}]
+set_property 	    PACKAGE_PIN 	    T29 		  [get_ports {ADC_DATA_IN_A_P[0]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_A_P[0]}]
-set_property 	    PACKAGE_PIN 	    H26 		  [get_ports {ADC_DATA_IN_A_N[0]}]
+set_property 	    PACKAGE_PIN 	    U29 		  [get_ports {ADC_DATA_IN_A_N[0]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_A_N[0]}]
 
-set_property 	    PACKAGE_PIN 	    AK7 		  [get_ports {ADC_DATA_IN_B_P[0]}]
+set_property 	    PACKAGE_PIN 	    AK17 		  [get_ports {ADC_DATA_IN_B_P[0]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_P[0]}]
 set_property 	    PACKAGE_PIN 	    AK18 		  [get_ports {ADC_DATA_IN_B_N[0]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_N[0]}]
@@ -121,9 +121,9 @@ set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_P[10]}]
 set_property 	    PACKAGE_PIN 	    P29 		  [get_ports {ADC_DATA_IN_B_N[10]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_N[10]}]
 
-set_property 	    PACKAGE_PIN 	    H34 		  [get_ports {ADC_DATA_IN_B_P[11]}]
+set_property 	    PACKAGE_PIN 	    N26 		  [get_ports {ADC_DATA_IN_B_P[11]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_P[11]}]
-set_property 	    PACKAGE_PIN 	    H35 		  [get_ports {ADC_DATA_IN_B_N[11]}]
+set_property 	    PACKAGE_PIN 	    N27 		  [get_ports {ADC_DATA_IN_B_N[11]}]
 set_property 	    IOSTANDARD 	      LVDS 	    [get_ports {ADC_DATA_IN_B_N[11]}]
 
 
