@@ -43,12 +43,15 @@ entity top_wrapper is
         DAC_CLOCK_N : out STD_LOGIC;
     
         -- CONTROLS TO THE DAC
-        FPGA_CLKP : IN STD_LOGIC;
-        FPGA_CLKN : IN STD_LOGIC;
+        CLK_FROM_DAC_P : IN STD_LOGIC;
+        CLK_FROM_DAC_N : IN STD_LOGIC;
         SYNCP : out STD_LOGIC;
         SYNCN : out STD_LOGIC;
         DCLKP : out STD_LOGIC;
         DCLKN : out STD_LOGIC;
+        -- CLOCKs
+        CLK_200MHz_N    : in STD_LOGIC;
+        CLK_200MHz_P    : in STD_LOGIC;
 
         -- ADC DATA COMING IN AS LVDS
         ADC_DATA_IN_B_P : in STD_LOGIC_VECTOR (11 downto 0); -- EVEN 0, 2, 4...
@@ -80,7 +83,8 @@ architecture Behavioral of top_wrapper is
     signal dac_data_1_w		:	std_logic_vector (15 downto 0);		-- DAC Data converted to 16bits from adc_data_1
     signal dac_data_2_w		:	std_logic_vector (15 downto 0);		-- DAC Data converted to 16bits from adc_data_2 
     signal dac_data_3_w		:	std_logic_vector (15 downto 0);		-- DAC Data converted to 16bits from adc_data_3   
-    signal dac_clk			:	std_logic;							--NEED TO FIND OUT WHERE THIS COME'S FROM
+    signal dac_clk			  : std_logic;							--NEED TO FIND OUT WHERE THIS COME'S FROM
+    signal clk_200MHz     : std_logic;         
 
 	component ADC_INTERFACE
 		Port (
@@ -211,7 +215,7 @@ begin
 			DAC_DATA_2	=> dac_data_2_w,
 			DAC_DATA_3	=> dac_data_3_w,
 
-			--input clk from DAC
+			--Ouput sample sync clk to DAC
 			DAC_CLOCK_P	=> DAC_CLOCK_P,
 			DAC_CLOCK_N	=> DAC_CLOCK_N,
 
@@ -222,9 +226,21 @@ begin
 
 			--System Clock from ADC interface
 			SYS_CLK	     	=> sys_clk,
-            		FPGA_CLKP       => FPGA_CLKP,
-            		FPGA_CLKN       => FPGA_CLKN
+      FPGA_CLKP       => CLK_FROM_DAC_P,
+      FPGA_CLKN       => CLK_FROM_DAC_N
 
 			);
+
+
+     SYS_CLK_INST : IBUFGDS
+   generic map (
+      DQS_BIAS => "FALSE"  -- (FALSE, TRUE)
+   )
+   port map (
+      O => clk_200MHz,   -- 1-bit output: Buffer output
+      I => CLK200MHz_P,   -- 1-bit input: Diff_p buffer input (connect directly to top-level port)
+      IB => CLCK_200MHz_N  -- 1-bit input: Diff_n buffer input (connect directly to top-level port)
+   );
+
 
 end Behavioral;
