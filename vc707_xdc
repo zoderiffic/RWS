@@ -1,0 +1,255 @@
+set_property 	    PACKAGE_PIN 	    AC40 		  [get_ports {ADC_DATA_IN_A_P[11]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[11]}]
+
+set_property 	    PACKAGE_PIN 	    AC41 		  [get_ports {ADC_DATA_IN_A_N[11]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[11]}]
+
+
+set_property 	    PACKAGE_PIN 	    Y39 		  [get_ports {ADC_DATA_IN_A_P[10]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[10]}]
+set_property 	    PACKAGE_PIN 	    AA39 		  [get_ports {ADC_DATA_IN_A_N[10]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[10]}]
+
+
+
+
+set_property 	    PACKAGE_PIN 	    Y42 		  [get_ports {ADC_DATA_IN_A_P[9]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[9]}]
+set_property 	    PACKAGE_PIN 	    AA42 		  [get_ports {ADC_DATA_IN_A_N[9]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[9]}]
+
+set_property 	    PACKAGE_PIN 	    AJ40 		  [get_ports {ADC_DATA_IN_A_P[8]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[8]}]
+set_property 	    PACKAGE_PIN 	    AJ41 		  [get_ports {ADC_DATA_IN_A_N[8]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[8]}]
+
+set_property 	    PACKAGE_PIN 	    AC38 		  [get_ports {ADC_DATA_IN_A_P[7]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[7]}]
+set_property 	    PACKAGE_PIN 	    AC39 		  [get_ports {ADC_DATA_IN_A_N[7]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[7]}]
+
+set_property 	    PACKAGE_PIN 	    U32 		  [get_ports {ADC_DATA_IN_A_P[6]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[6]}]
+set_property 	    PACKAGE_PIN 	    U33 		  [get_ports {ADC_DATA_IN_A_N[6]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[6]}]
+
+set_property 	    PACKAGE_PIN 	    AD40 		  [get_ports {ADC_DATA_IN_A_P[5]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[5]}]
+set_property 	    PACKAGE_PIN 	    AD41 		  [get_ports {ADC_DATA_IN_A_N[5]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[5]}]
+
+
+set_property 	    PACKAGE_PIN 	    U25 		  [get_ports {ADC_DATA_IN_A_P[4]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[4]}]
+set_property 	    PACKAGE_PIN 	    V26 		  [get_ports {ADC_DATA_IN_A_N[4]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[4]}]
+
+set_property 	    PACKAGE_PIN 	    W32 		  [get_ports {ADC_DATA_IN_A_P[3]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[3]}]
+set_property 	    PACKAGE_PIN 	    W33 		  [get_ports {ADC_DATA_IN_A_N[3]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[3]}]
+
+
+
+set_property 	    PACKAGE_PIN 	    P35 		  [get_ports {ADC_DATA_IN_A_P[2]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[2]}]
+set_property 	    PACKAGE_PIN 	    P36 		  [get_ports {ADC_DATA_IN_A_N[2]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[2]}]
+
+set_property 	    PACKAGE_PIN 	    U34 		  [get_ports {ADC_DATA_IN_A_P[1]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[1]}]
+set_property 	    PACKAGE_PIN 	    T35 		  [get_ports {ADC_DATA_IN_A_N[1]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[1]}]
+
+set_property 	    PACKAGE_PIN 	    R33 		  [get_ports {ADC_DATA_IN_A_P[0]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_P[0]}]
+set_property 	    PACKAGE_PIN 	    R34 		  [get_ports {ADC_DATA_IN_A_N[0]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_A_N[0]}]
+
+set_property 	    PACKAGE_PIN 	    AK39 		  [get_ports {ADC_DATA_IN_B_P[0]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[0]}]
+set_property 	    PACKAGE_PIN 	    AL39 		  [get_ports {ADC_DATA_IN_B_N[0]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[0]}]
+
+set_property 	    PACKAGE_PIN 	    AL41 		  [get_ports {ADC_DATA_IN_B_P[1]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[1]}]
+set_property 	    PACKAGE_PIN 	    AL42 		  [get_ports {ADC_DATA_IN_B_N[1]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[1]}]
+
+set_property 	    PACKAGE_PIN 	    AD38 		    [get_ports {ADC_DATA_IN_B_P[2]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[2]}]
+set_property 	    PACKAGE_PIN 	    AE38 		  [get_ports {ADC_DATA_IN_B_N[2]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[2]}]
+
+set_property 	    PACKAGE_PIN 	    AF42 		  [get_ports {ADC_DATA_IN_B_P[3]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[3]}]
+set_property 	    PACKAGE_PIN 	    AG42 		  [get_ports {ADC_DATA_IN_B_N[3]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[3]}]
+
+set_property 	    PACKAGE_PIN 	    AB41 		  [get_ports {ADC_DATA_IN_B_P[4]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[4]}]
+set_property 	    PACKAGE_PIN 	    AB42 		  [get_ports {ADC_DATA_IN_B_N[4]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[4]}]
+
+set_property 	    PACKAGE_PIN 	    R38 		  [get_ports {ADC_DATA_IN_B_P[5]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[5]}]
+set_property 	    PACKAGE_PIN 	    R39 		  [get_ports {ADC_DATA_IN_B_N[5]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[5]}]
+
+set_property 	    PACKAGE_PIN 	    P32 		  [get_ports {ADC_DATA_IN_B_P[6]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[6]}]
+set_property 	    PACKAGE_PIN 	    P33 		  [get_ports {ADC_DATA_IN_B_N[6]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[6]}]
+
+set_property 	    PACKAGE_PIN 	    W36 		  [get_ports {ADC_DATA_IN_B_P[7]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[7]}]
+set_property 	    PACKAGE_PIN 	    W37 		  [get_ports {ADC_DATA_IN_B_N[7]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[7]}]
+
+set_property 	    PACKAGE_PIN 	    T32 		  [get_ports {ADC_DATA_IN_B_P[8]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[8]}]
+set_property 	    PACKAGE_PIN 	    R32 		  [get_ports {ADC_DATA_IN_B_N[8]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[8]}]
+
+set_property 	    PACKAGE_PIN 	    P37 		  [get_ports {ADC_DATA_IN_B_P[9]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[9]}]
+set_property 	    PACKAGE_PIN 	    P38 		  [get_ports {ADC_DATA_IN_B_N[9]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[9]}]
+
+set_property 	    PACKAGE_PIN 	    V39 		  [get_ports {ADC_DATA_IN_B_P[10]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[10]}]
+set_property 	    PACKAGE_PIN 	    V40 		  [get_ports {ADC_DATA_IN_B_N[10]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[10]}]
+
+set_property 	    PACKAGE_PIN 	    T36 		  [get_ports {ADC_DATA_IN_B_P[11]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_P[11]}]
+set_property 	    PACKAGE_PIN 	    R37 		  [get_ports {ADC_DATA_IN_B_N[11]}]
+set_property 	    IOSTANDARD 	      LVDS_25 	    [get_ports {ADC_DATA_IN_B_N[11]}]
+
+
+
+set_property      PACKAGE_PIN 	    R40 	    [get_ports {DAC_DATA_OUT_P[15]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[15]}]
+set_property      PACKAGE_PIN 	    P40 	    [get_ports {DAC_DATA_OUT_N[15]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[15]}]
+
+set_property      PACKAGE_PIN 	    K37 	    [get_ports {DAC_DATA_OUT_P[14]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[14]}]
+set_property      PACKAGE_PIN 	    K38 	    [get_ports {DAC_DATA_OUT_N[14]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[14]}]
+
+set_property      PACKAGE_PIN 	    Y29 	    [get_ports {DAC_DATA_OUT_P[13]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[13]}]
+set_property      PACKAGE_PIN 	    Y30 	    [get_ports {DAC_DATA_OUT_N[13]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[13]}]
+
+set_property      PACKAGE_PIN 	    R28 	    [get_ports {DAC_DATA_OUT_P[12]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[12]}]
+set_property      PACKAGE_PIN 	    P28 	    [get_ports {DAC_DATA_OUT_N[12]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[12]}]
+
+set_property      PACKAGE_PIN 	    K29 	    [get_ports {DAC_DATA_OUT_P[11]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[11]}]
+set_property      PACKAGE_PIN 	    K30 	    [get_ports {DAC_DATA_OUT_N[11]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[11]}]
+
+set_property      PACKAGE_PIN 	    T29 	    [get_ports {DAC_DATA_OUT_P[10]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[10]}]
+set_property      PACKAGE_PIN 	    T30 	    [get_ports {DAC_DATA_OUT_N[10]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[10]}]
+
+set_property      PACKAGE_PIN 	    M28 	    [get_ports {DAC_DATA_OUT_P[9]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[9]}]
+set_property      PACKAGE_PIN 	    M29 	    [get_ports {DAC_DATA_OUT_N[9]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[9]}]
+
+set_property      PACKAGE_PIN 	    U31 	    [get_ports {DAC_DATA_OUT_P[8]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[8]}]
+set_property      PACKAGE_PIN 	    T31 	    [get_ports {DAC_DATA_OUT_N[8]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[8]}]
+
+
+set_property      PACKAGE_PIN 	    P41 	    [get_ports {DAC_DATA_OUT_P[7]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[7]}]
+set_property      PACKAGE_PIN 	    N41 	    [get_ports {DAC_DATA_OUT_N[7]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[7]}]
+
+set_property      PACKAGE_PIN 	    H40 	    [get_ports {DAC_DATA_OUT_P[6]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[6]}]
+set_property      PACKAGE_PIN 	    H41 	    [get_ports {DAC_DATA_OUT_N[6]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[6]}]
+
+
+set_property      PACKAGE_PIN 	    G41 	    [get_ports {DAC_DATA_OUT_P[5]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[5]}]
+set_property      PACKAGE_PIN 	    G42 	    [get_ports {DAC_DATA_OUT_N[5]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[5]}]
+
+set_property      PACKAGE_PIN 	    F40 	    [get_ports {DAC_DATA_OUT_P[4]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[4]}]
+set_property      PACKAGE_PIN 	    F41 	    [get_ports {DAC_DATA_OUT_N[4]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[4]}]
+
+set_property      PACKAGE_PIN 	    M36 	    [get_ports {DAC_DATA_OUT_P[3]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[3]}]
+set_property      PACKAGE_PIN 	    L37 	    [get_ports {DAC_DATA_OUT_N[3]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[3]}]
+
+set_property      PACKAGE_PIN 	    W30 	    [get_ports {DAC_DATA_OUT_P[2]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[2]}]
+set_property      PACKAGE_PIN 	    W31 	    [get_ports {DAC_DATA_OUT_N[2]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[2]}]
+
+set_property      PACKAGE_PIN 	    N28 	    [get_ports {DAC_DATA_OUT_P[1]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[1]}]
+set_property      PACKAGE_PIN 	    N29 	    [get_ports {DAC_DATA_OUT_N[1]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[1]}]
+
+set_property      PACKAGE_PIN 	    R30 	    [get_ports {DAC_DATA_OUT_P[0]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_P[0]}]
+set_property      PACKAGE_PIN 	    P31 	    [get_ports {DAC_DATA_OUT_N[0]}]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports {DAC_DATA_OUT_N[0]}]
+
+
+
+
+
+
+
+
+## CONTROL COMMANDS
+
+
+
+set_property      PACKAGE_PIN 	    U37 	    [get_ports ADC_CLOCK_A_P]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports ADC_CLOCK_A_P]
+set_property      PACKAGE_PIN 	    U38 	    [get_ports ADC_CLOCK_A_N]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports ADC_CLOCK_A_N]
+
+set_property      PACKAGE_PIN 	    M32 	    [get_ports DAC_CLOCK_P]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports DAC_CLOCK_P]
+set_property      PACKAGE_PIN 	    L32 	    [get_ports DAC_CLOCK_N]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports DAC_CLOCK_N]
+
+set_property      PACKAGE_PIN 	    V30 	    [get_ports SYNCP]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports SYNCP]
+set_property      PACKAGE_PIN 	    V31 	    [get_ports SYNCN]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports SYNCN]
+
+set_property      PACKAGE_PIN 	    L39 	    [get_ports CLK_FROM_DAC_P]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports CLK_FROM_DAC_P]
+set_property      PACKAGE_PIN 	    L40 	    [get_ports CLK_FROM_DAC_N]
+set_property      IOSTANDARD 	      LVDS_25      [get_ports CLK_FROM_DAC_N]
+
+
+set_property      PACKAGE_PIN       G9        [get_ports CLK_200MHz_N]
+set_property      IOSTANDARD        LVDS      [get_ports CLK_200MHz_N]
+set_property      PACKAGE_PIN       H9        [get_ports CLK_200MHz_P]
+set_property      IOSTANDARD        LVDS      [get_ports CLK_200MHz_P]
+
+create_clock -period 5.000 -name CLK_200MHz -waveform {0.000 2.500} [get_ports CLK_200MHz_P]
+
+
+set_property      PACKAGE_PIN       K15       [get_ports RESET]
+set_property      IOSTANDARD        LVCMOS15  [get_ports RESET]
+
