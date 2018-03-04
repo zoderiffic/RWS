@@ -242,12 +242,15 @@ set_property      PACKAGE_PIN 	    L40 	    [get_ports CLK_FROM_DAC_N]
 set_property      IOSTANDARD 	      LVDS_25      [get_ports CLK_FROM_DAC_N]
 
 
-set_property      PACKAGE_PIN       G9        [get_ports CLK_200MHz_N]
+set_property      PACKAGE_PIN       E18        [get_ports CLK_200MHz_N]
 set_property      IOSTANDARD        LVDS      [get_ports CLK_200MHz_N]
-set_property      PACKAGE_PIN       H9        [get_ports CLK_200MHz_P]
+set_property      PACKAGE_PIN       E19        [get_ports CLK_200MHz_P]
 set_property      IOSTANDARD        LVDS      [get_ports CLK_200MHz_P]
 
 create_clock -period 5.000 -name CLK_200MHz -waveform {0.000 2.500} [get_ports CLK_200MHz_P]
+create_clock -period 4.000 -name CLK_ADC -waveform {0.000 2.000} [get_ports ADC_CLOCK_A_P]
+
+
 
 
 set_property      PACKAGE_PIN       K15       [get_ports RESET]
