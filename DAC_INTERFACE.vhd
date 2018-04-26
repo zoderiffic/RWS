@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.All;
 library UNISIM;
 use UNISIM.vcomponents.all;
 
@@ -15,6 +16,7 @@ entity DAC_INTERFACE is
 		--input clk from DAC
 		DAC_CLOCK_P	: OUT STD_LOGIC;
 		DAC_CLOCK_N	: OUT STD_LOGIC;
+		
 
 		--DAC interface output
 		DAC_DATA_OUT_P	: out STD_LOGIC_VECTOR(15 downto 0);
@@ -25,18 +27,28 @@ entity DAC_INTERFACE is
 		RESET           : in  STD_LOGIC;
 
 		--System Clock from ADC interface
+		DAC_CLK         : IN STD_LOGIC;
+		DAC_CLK_180     : in std_logic;
         SYS_CLK 	    : in STD_LOGIC; --sysclock
         FPGA_CLKP       : IN STD_LOGIC;
         FPGA_CLKN       : IN STD_LOGIC
 		);
+
 	end DAC_INTERFACE;
 
 architecture Behavioral of DAC_INTERFACE is
 	
-	signal dac_clk 		: STD_LOGIC;
+--	signal dac_clk 		: STD_LOGIC;
 	signal clk1_ghz     : STD_LOGIC;
 	signal dac_data_out : STD_LOGIC_VECTOR(15 downto 0);
 	signal sync         : STD_LOGIC;
+	signal dac_data_0_q  : STD_LOGIC_VECTOR(15 downto 0);
+	signal dac_data_1_q  : STD_LOGIC_VECTOR(15 downto 0);
+	signal dac_data_2_q  : STD_LOGIC_VECTOR(15 downto 0);
+	signal dac_data_3_q  : STD_LOGIC_VECTOR(15 downto 0);
+	signal serdes_reset  : std_logic := '1';
+	signal reset_q       : std_logic := '0';
+	signal reset_qq       : std_logic:= '0';
 	
 	component pll_250HZz_to_500MHz
     port
@@ -53,7 +65,16 @@ architecture Behavioral of DAC_INTERFACE is
 
 	begin
 
-
+    process(SYS_CLK)
+    begin
+        if rising_edge(SYS_CLK) then
+            if RESET = '0' then 
+            reset_q <= RESET;
+            reset_qq <= reset_q;
+            serdes_reset <= reset_qq;
+            end if;
+        end if;
+    end process;
 
 	process(RESET, SYS_CLK)
 		begin
@@ -62,26 +83,22 @@ architecture Behavioral of DAC_INTERFACE is
 			else 
 				if rising_edge(SYS_CLK) then
                 sync <= '1';
+                DAC_DATA_0_q <= DAC_DATA_0;
+                DAC_DATA_1_q <= DAC_DATA_1;
+                DAC_DATA_2_q <= DAC_DATA_2;
+                DAC_DATA_3_q <= DAC_DATA_3;
+                
 				end if;
 			end if;
 		end process;
-                pll_250MHz_to_500MHz : pll_250HZz_to_500MHz -- 500 MHz to drive oserdes with the DAC CLK
-                       port map ( 
-                      -- Clock out ports  
-                       DAC_CLK => dac_clk,
-                      -- Status and control signals                
-                       RESET => reset,
-                       LOCKED => open,
-                       -- Clock in ports
-                       SYS_CLK => SYS_CLK
-                     );
+
 				--DAC Clo
 	        	OBUFDS_inst_DACCLK : OBUFDS
 		            generic map (
                     -- Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
 		                IOSTANDARD      =>      "DEFAULT")
 		            port map (
-		                I               =>      dac_clk,           			-- Buffer output
+		                I               =>      dac_clk_180,           			-- Buffer output
 		                O               =>      DAC_CLOCK_P,         		-- Diff_p buffer input (connect directly to top-level port)
 		                OB              =>      DAC_CLOCK_N          		-- Diff_n buffer input (connect directly to top-level port)
 	            	); 
@@ -121,19 +138,19 @@ architecture Behavioral of DAC_INTERFACE is
 							TBYTEOUT => open, -- 1-bit output: Byte group tristate
 							TFB => open, -- 1-bit output: 3-state control
 							TQ => open, -- 1-bit output: 3-state control
-							CLK => dac_clk, -- 1-bit input: High speed clock
+							CLK => DAC_CLK, -- 1-bit input: High speed clock
 							CLKDIV => SYS_CLK, -- 1-bit input: Divided clock
 							-- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
-							D1 => DAC_DATA_1(i),
-							D2 => DAC_DATA_3(i),
-							D3 => DAC_DATA_0(i),
-							D4 => DAC_DATA_2(i),
+							D1 => DAC_DATA_2_q(i),
+							D2 => DAC_DATA_3_q(i),
+							D3 => DAC_DATA_0_q(i),
+							D4 => DAC_DATA_1_q(i),
 							D5 => '1',
 							D6 => '1',
 							D7 => '1',
 							D8 => '1',
 							OCE => '1', -- 1-bit input: Output data clock enable
-							RST => RESET, -- 1-bit input: Reset
+							RST => serdes_reset, -- 1-bit input: Reset
 							-- SHIFTIN1 / SHIFTIN2: 1-bit (each) input: Data input expansion (1-bit each)
 							SHIFTIN1 => '0',
 							SHIFTIN2 => '0',

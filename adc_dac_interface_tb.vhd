@@ -69,6 +69,11 @@ architecture Behavioral of adc_dac_interface_tb is
                 -- ADC CLK coming in as LVDS
             ADC_CLOCK_A_P : in STD_LOGIC; --250 MHz clock output from ADC 
             ADC_CLOCK_A_N : in STD_LOGIC;
+            
+            LED_0         : out STD_LOGIC;
+            LED_1         : out STD_LOGIC;
+            LED_2         : out STD_LOGIC;
+            SW            : in  STD_LOGIC;
             RESET           : in STD_LOGIC);
     end component;
     
@@ -125,6 +130,10 @@ reset <= '1', '0' after 10 ns;
         ADC_DATA_IN_B_P => adc_data_b_p,
         ADC_DATA_IN_B_N => adc_data_b_n,
         ADC_DATA_IN_A_P => adc_data_a_p,
+        LED_0     => open,
+        LED_1     => open,
+        LED_2     => open,
+        SW        => '0',
         ADC_DATA_IN_A_N => adc_data_a_n
         );
         

@@ -28,10 +28,11 @@ entity DSP is
 
 
 architecture Behavioral of DSP is
-	signal sig_0 	: std_logic_vector(15 downto 0);
-	signal sig_1 	: std_logic_vector(15 downto 0);
-	signal sig_2 	: std_logic_vector(15 downto 0);
-	signal sig_3 	: std_logic_vector(15 downto 0);
+	signal sig_0 	: std_logic_vector(15 downto 0)  := (others => ('0'));
+	signal sig_1 	: std_logic_vector(15 downto 0)  := (others => ('0'));
+	signal sig_2 	: std_logic_vector(15 downto 0)  := (others => ('0'));
+	signal sig_3 	: std_logic_vector(15 downto 0)  := (others => ('0'));
+	
 
 
 begin
@@ -46,24 +47,18 @@ begin
 			else 
 				if rising_edge(SYS_CLK) then
 				    --PADDING BOTTOM 4 BITS of ADC WITH ZEROS and taking two's complement. DAC TAKES IN TWOS COMPLEMENT
-					sig_0(15 downto 4)	<= NOT(ADC_DATA_0) + 1;
-					sig_0(3 downto 0)	<= x"0";
-
-					sig_1(15 downto 4)	<= NOT(ADC_DATA_1) + 1;
-					sig_1(3 downto 0)	<= x"0";					
-
-					sig_2(15 downto 4)	<=NOT(ADC_DATA_2) + 1 ;
-					sig_2(3 downto 0)	<= x"0";					
-
-					sig_3(15 downto 4)	<= NOT(ADC_DATA_3) + 1;
-					sig_3(3 downto 0)	<= x"0";	
+					sig_0(15 downto 4)	<= ADC_DATA_0;
+					sig_1(15 downto 4)	<= ADC_DATA_1;					
+					sig_2(15 downto 4)	<= ADC_DATA_2 ;
+					sig_3(15 downto 4)	<= ADC_DATA_3;
+						
 				end if;
 			end if;
 		end process;
-        DAC_DATA_0 	 <= sig_0;
-        DAC_DATA_1   <= sig_1;
-        DAC_DATA_2  <= sig_2;
-        DAC_DATA_3 <= sig_3;
+        DAC_DATA_0 	    <= sig_0;
+        DAC_DATA_1      <= sig_1;
+        DAC_DATA_2      <= sig_2;
+        DAC_DATA_3      <= sig_3;
 		
 	end Behavioral;			
 

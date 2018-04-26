@@ -253,6 +253,6 @@ create_clock -period 4.000 -name CLK_ADC -waveform {0.000 2.000} [get_ports ADC_
 
 
 
-set_property      PACKAGE_PIN       K15       [get_ports RESET]
+set_property      PACKAGE_PIN       AV39       [get_ports RESET]
 set_property      IOSTANDARD        LVCMOS15  [get_ports RESET]
 
